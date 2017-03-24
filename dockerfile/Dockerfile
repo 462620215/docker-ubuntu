@@ -31,7 +31,7 @@ RUN echo "export PATH=$M2_HOME/bin:$PATH">>/etc/profile
 
 COPY ./settings.xml /root/.m2/
 
-COPY cp ./java.security /usr/lib/jvm/java-1.7.0-openjdk-amd64/jre/lib/security/
+COPY ./java.security /usr/lib/jvm/java-1.7.0-openjdk-amd64/jre/lib/security/
 
 COPY ./docker-entrypoint.sh /
 
