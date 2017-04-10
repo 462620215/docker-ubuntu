@@ -3,7 +3,7 @@ FROM ubuntu:14.04
 MAINTAINER wangsh<462620215@qq.com>
 
 ENV TOMCAT_MAJOR_VERSION 7
-ENV TOMCAT_MINOR_VERSION 7.0.76
+ENV TOMCAT_MINOR_VERSION 7.0.77
 
 RUN sudo rm -f /etc/localtime \
     && sudo ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
