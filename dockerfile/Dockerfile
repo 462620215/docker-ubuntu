@@ -32,11 +32,13 @@ RUN wget http://apache.mesi.com.ar/maven/maven-3/3.3.9/binaries/apache-maven-3.3
 RUN echo "export M2_HOME=/work/maven">>/etc/profile
 RUN echo "export PATH=$M2_HOME/bin:$PATH">>/etc/profile
 
-COPY /docker-ubuntu/dockerfile/Dockerfile/settings.xml /root/.m2/
+RUN pwd
 
-COPY ../java.security /usr/lib/jvm/java-1.7.0-openjdk-amd64/jre/lib/security/
+COPY ./settings.xml /root/.m2/
 
-COPY ../docker-entrypoint.sh /
+COPY ./java.security /usr/lib/jvm/java-1.7.0-openjdk-amd64/jre/lib/security/
+
+COPY ./docker-entrypoint.sh /
 
 RUN ["chmod", "+x", "/docker-entrypoint.sh"]
 
