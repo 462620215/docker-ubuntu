@@ -40,6 +40,12 @@ RUN wget http://brandpano.oss-cn-shenzhen.aliyuncs.com/ubuntu/java.security \
     
 RUN wget http://brandpano.oss-cn-shenzhen.aliyuncs.com/ubuntu/docker-entrypoint.sh \
     && mv docker-entrypoint.sh /
+    
+RUN pwd
+RUN ls
+RUN cd /
+RUN pwd
+RUN ls
 
 RUN ["chmod", "+x", "/docker-entrypoint.sh"]
 
