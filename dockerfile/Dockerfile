@@ -5,6 +5,9 @@ MAINTAINER wangsh<462620215@qq.com>
 ENV TOMCAT_MAJOR_VERSION 7
 ENV TOMCAT_MINOR_VERSION 7.0.76
 
+RUN sudo rm -f /etc/localtime \
+    && sudo ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+
 RUN sudo apt-get update \
     && sudo apt-get install -y openjdk-7-jdk \
     && sudo apt-get install -y openjdk-7-jre \
