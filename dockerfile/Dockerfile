@@ -33,7 +33,7 @@ RUN echo "export M2_HOME=/work/maven">>/etc/profile
 RUN echo "export PATH=$M2_HOME/bin:$PATH">>/etc/profile
 
 RUN wget http://brandpano.oss-cn-shenzhen.aliyuncs.com/ubuntu/settings.xml \
-    && mv settings.xml /root/.m2/
+    && mkdir -p /root/.m2/ && mv settings.xml /root/.m2/
     
 RUN wget http://brandpano.oss-cn-shenzhen.aliyuncs.com/ubuntu/java.security \
     && mv java.security /usr/lib/jvm/java-1.7.0-openjdk-amd64/jre/lib/security/
