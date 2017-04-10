@@ -43,9 +43,9 @@ RUN wget http://brandpano.oss-cn-shenzhen.aliyuncs.com/ubuntu/docker-entrypoint.
 RUN pwd
 RUN ls
 
-RUN ["chmod", "+x", "/docker-entrypoint.sh"]
+RUN ["chmod", "+x", "docker-entrypoint.sh"]
 
 EXPOSE 8080
 
-ENTRYPOINT ["/docker-entrypoint.sh"]
+ENTRYPOINT ["docker-entrypoint.sh"]
 
