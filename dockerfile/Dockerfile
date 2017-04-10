@@ -39,13 +39,10 @@ RUN wget http://brandpano.oss-cn-shenzhen.aliyuncs.com/ubuntu/java.security \
     && mv java.security /usr/lib/jvm/java-1.7.0-openjdk-amd64/jre/lib/security/
     
 RUN wget http://brandpano.oss-cn-shenzhen.aliyuncs.com/ubuntu/docker-entrypoint.sh
-    
-RUN pwd
-RUN ls
 
-RUN ["chmod", "+x", "docker-entrypoint.sh"]
+RUN ["chmod", "+x", "/docker-entrypoint.sh"]
 
 EXPOSE 8080
 
-ENTRYPOINT ["pwd", "/docker-entrypoint.sh"]
+ENTRYPOINT ["/docker-entrypoint.sh"]
 
