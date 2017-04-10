@@ -40,9 +40,9 @@ RUN wget http://brandpano.oss-cn-shenzhen.aliyuncs.com/ubuntu/java.security \
     
 RUN wget http://brandpano.oss-cn-shenzhen.aliyuncs.com/ubuntu/docker-entrypoint.sh
 
-RUN ["chmod", "+x", "/docker-entrypoint.sh"]
+RUN ["chmod", "+x", "docker-entrypoint.sh"]
 
 EXPOSE 8080
 
-ENTRYPOINT ["/docker-entrypoint.sh"]
+ENTRYPOINT ["/work/docker-entrypoint.sh"]
 
