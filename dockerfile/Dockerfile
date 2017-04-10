@@ -38,12 +38,8 @@ RUN wget http://brandpano.oss-cn-shenzhen.aliyuncs.com/ubuntu/settings.xml \
 RUN wget http://brandpano.oss-cn-shenzhen.aliyuncs.com/ubuntu/java.security \
     && mv java.security /usr/lib/jvm/java-1.7.0-openjdk-amd64/jre/lib/security/
     
-RUN wget http://brandpano.oss-cn-shenzhen.aliyuncs.com/ubuntu/docker-entrypoint.sh \
-    && mv docker-entrypoint.sh /
+RUN wget http://brandpano.oss-cn-shenzhen.aliyuncs.com/ubuntu/docker-entrypoint.sh
     
-RUN pwd
-RUN ls
-RUN cd /
 RUN pwd
 RUN ls
 
