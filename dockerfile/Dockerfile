@@ -21,6 +21,17 @@ RUN echo "export PATH=$JAVA_HOME/bin:$JRE_HOME/bin:$PATH">>/etc/profile
 
 RUN sudo apt-get install -y subversion
 
+RUN wget http://brandpano.oss-cn-shenzhen.aliyuncs.com/ubuntu/settings.xml \
+    && mkdir -p /root/.m2/ && mv settings.xml /root/.m2/
+    
+RUN wget http://brandpano.oss-cn-shenzhen.aliyuncs.com/ubuntu/java.security \
+    && mv java.security /usr/lib/jvm/java-1.7.0-openjdk-amd64/jre/lib/security/
+    
+RUN wget http://brandpano.oss-cn-shenzhen.aliyuncs.com/ubuntu/docker-entrypoint.sh \
+    && mkdir /work && mv docker-entrypoint.sh /work/
+
+RUN ["chmod", "+x", "/work/docker-entrypoint.sh"]
+
 WORKDIR /work
 
 RUN wget http://mirrors.tuna.tsinghua.edu.cn/apache/tomcat/tomcat-${TOMCAT_MAJOR_VERSION}/v${TOMCAT_MINOR_VERSION}/bin/apache-tomcat-${TOMCAT_MINOR_VERSION}.zip \
@@ -31,16 +42,6 @@ RUN wget http://apache.mesi.com.ar/maven/maven-3/3.3.9/binaries/apache-maven-3.3
 
 RUN echo "export M2_HOME=/work/maven">>/etc/profile
 RUN echo "export PATH=$M2_HOME/bin:$PATH">>/etc/profile
-
-RUN wget http://brandpano.oss-cn-shenzhen.aliyuncs.com/ubuntu/settings.xml \
-    && mkdir -p /root/.m2/ && mv settings.xml /root/.m2/
-    
-RUN wget http://brandpano.oss-cn-shenzhen.aliyuncs.com/ubuntu/java.security \
-    && mv java.security /usr/lib/jvm/java-1.7.0-openjdk-amd64/jre/lib/security/
-    
-RUN wget http://brandpano.oss-cn-shenzhen.aliyuncs.com/ubuntu/docker-entrypoint.sh
-
-RUN ["chmod", "+x", "docker-entrypoint.sh"]
 
 EXPOSE 8080
 
