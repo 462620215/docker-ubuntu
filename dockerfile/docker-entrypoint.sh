@@ -13,8 +13,7 @@ echo "yes" | svn co --username=${SVN_USER} --password=${SVN_PWD}  ${SVN_URL} pro
 
 cd  project/${app_name}
 
-rm -rf pom.xml
-mv ${ENVIRONMENT} pom.xml
+yes|cp -r ${environment} pom.xml
 
 ../../maven/bin/mvn ${build_cmd}
 
