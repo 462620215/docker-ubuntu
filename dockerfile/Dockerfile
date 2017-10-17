@@ -3,7 +3,7 @@ FROM ubuntu:14.04
 MAINTAINER wangsh<462620215@qq.com>
 
 ENV TOMCAT_MAJOR_VERSION 7
-ENV TOMCAT_MINOR_VERSION 7.0.77
+ENV TOMCAT_MINOR_VERSION 7.0.82
 
 RUN sudo rm -f /etc/localtime \
     && sudo ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
@@ -37,7 +37,7 @@ WORKDIR /work
 RUN wget http://mirrors.tuna.tsinghua.edu.cn/apache/tomcat/tomcat-${TOMCAT_MAJOR_VERSION}/v${TOMCAT_MINOR_VERSION}/bin/apache-tomcat-${TOMCAT_MINOR_VERSION}.zip \
      && unzip apache-tomcat*.zip && rm -f apache-tomcat*.zip && mv apache-tomcat* tomcat
 
-RUN wget http://apache.mesi.com.ar/maven/maven-3/3.3.9/binaries/apache-maven-3.3.9-bin.zip \
+RUN wget http://mirror.bit.edu.cn/apache/maven/maven-3/3.5.0/binaries/apache-maven-3.5.0-bin.zip \
     && unzip apache-maven*.zip && rm -f apache-maven*.zip && mv apache-maven* maven
 
 RUN echo "export M2_HOME=/work/maven">>/etc/profile
