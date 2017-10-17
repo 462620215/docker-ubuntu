@@ -24,7 +24,7 @@ RUN sudo apt-get install -y subversion
 # RUN wget http://brandpano.oss-cn-shenzhen.aliyuncs.com/ubuntu/settings.xml \
 #     && mkdir -p /root/.m2/ && mv settings.xml /root/.m2/
     
-COPY ./settings.xml settings.xml
+COPY ./settings.xml /
 RUN mkdir -p /root/.m2/ && mv settings.xml /root/.m2/
     
 # RUN wget http://brandpano.oss-cn-shenzhen.aliyuncs.com/ubuntu/java.security \
