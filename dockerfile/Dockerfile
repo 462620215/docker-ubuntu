@@ -24,19 +24,19 @@ RUN sudo apt-get install -y subversion
 # RUN wget http://brandpano.oss-cn-shenzhen.aliyuncs.com/ubuntu/settings.xml \
 #     && mkdir -p /root/.m2/ && mv settings.xml /root/.m2/
     
-COPY settings.xml settings.xml
+COPY ./settings.xml settings.xml
 RUN mkdir -p /root/.m2/ && mv settings.xml /root/.m2/
     
 # RUN wget http://brandpano.oss-cn-shenzhen.aliyuncs.com/ubuntu/java.security \
 #     && mv java.security /usr/lib/jvm/java-1.7.0-openjdk-amd64/jre/lib/security/
 
-COPY java.security java.security
+COPY ./java.security java.security
 RUN mv java.security /usr/lib/jvm/java-1.7.0-openjdk-amd64/jre/lib/security/
     
 # RUN wget http://brandpano.oss-cn-shenzhen.aliyuncs.com/ubuntu/docker-entrypoint.sh \
 #     && mkdir /work && mv docker-entrypoint.sh /work/
 
-COPY docker-entrypoint.sh docker-entrypoint.sh
+COPY ./docker-entrypoint.sh docker-entrypoint.sh
 RUN mkdir /work && mv docker-entrypoint.sh /work/
 
 RUN ["chmod", "+x", "/work/docker-entrypoint.sh"]
