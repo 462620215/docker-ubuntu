@@ -27,10 +27,10 @@ RUN wget http://brandpano-test.oss-cn-shenzhen.aliyuncs.com/docker-github/settin
 RUN wget http://brandpano-test.oss-cn-shenzhen.aliyuncs.com/docker-github/java.security \
     && mv java.security /usr/lib/jvm/java-1.7.0-openjdk-amd64/jre/lib/security/
     
-RUN wget http://brandpano-test.oss-cn-shenzhen.aliyuncs.com/docker-github/docker-entrypoint.sh \
-    && mkdir /work && mv docker-entrypoint.sh /work/ 
+RUN wget http://brandpano-test.oss-cn-shenzhen.aliyuncs.com/docker-github/entrypoint.sh \
+    && mkdir /work && mv entrypoint.sh /work/ 
 
-RUN ["chmod", "+x", "/work/docker-entrypoint.sh"]
+RUN ["chmod", "+x", "/work/entrypoint.sh"]
 
 WORKDIR /work
 
@@ -48,4 +48,4 @@ RUN ls
 
 EXPOSE 8080
 
-ENTRYPOINT ["/work/docker-entrypoint.sh"]
+ENTRYPOINT ["/work/entrypoint.sh"]
