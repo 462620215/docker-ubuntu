@@ -2,9 +2,6 @@ FROM ubuntu:14.04
 
 MAINTAINER wangsh<462620215@qq.com>
 
-ENV TOMCAT_MAJOR_VERSION 7
-ENV TOMCAT_MINOR_VERSION 7.0.82
-
 RUN sudo rm -f /etc/localtime \
     && sudo ln -s /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 
@@ -12,7 +9,8 @@ RUN sudo apt-get update \
     && sudo apt-get install -y openjdk-7-jdk \
     && sudo apt-get install -y openjdk-7-jre \
     && sudo apt-get install -y wget \
-    && sudo apt-get install -y zip
+    && sudo apt-get install -y zip \
+    && sudo apt-get install -y vim
  
 RUN echo "export JAVA_HOME=/usr/lib/jvm/Java-7-openjdk-amd64">>/etc/profile
 RUN echo "export JRE_HOME=$JAVA_HOME/jre">>/etc/profile
@@ -42,9 +40,6 @@ RUN wget http://brandpano-test.oss-cn-shenzhen.aliyuncs.com/docker-github/apache
 
 RUN echo "export M2_HOME=/work/maven">>/etc/profile
 RUN echo "export PATH=$M2_HOME/bin:$PATH">>/etc/profile
-
-RUN pwd
-RUN ls
 
 EXPOSE 8080
 
