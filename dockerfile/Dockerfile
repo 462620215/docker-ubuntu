@@ -34,10 +34,10 @@ RUN ["chmod", "+x", "/work/docker-entrypoint.sh"]
 
 WORKDIR /work
 
-RUN wget http://mirror.bit.edu.cn/apache/tomcat/tomcat-${TOMCAT_MAJOR_VERSION}/v${TOMCAT_MINOR_VERSION}/bin/apache-tomcat-${TOMCAT_MINOR_VERSION}.zip \
+RUN wget http://brandpano-test.oss-cn-shenzhen.aliyuncs.com/docker-github/apache-tomcat-7.0.82.zip \
      && unzip apache-tomcat*.zip && rm -f apache-tomcat*.zip && mv apache-tomcat* tomcat
 
-RUN wget http://mirror.bit.edu.cn/apache/maven/maven-3/3.5.0/binaries/apache-maven-3.5.0-bin.zip \
+RUN wget http://brandpano-test.oss-cn-shenzhen.aliyuncs.com/docker-github/apache-maven-3.3.9-bin.zip \
     && unzip apache-maven*.zip && rm -f apache-maven*.zip && mv apache-maven* maven
 
 RUN echo "export M2_HOME=/work/maven">>/etc/profile
