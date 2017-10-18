@@ -49,4 +49,3 @@ RUN ls
 EXPOSE 8080
 
 ENTRYPOINT ["/work/docker-entrypoint.sh"]
-
